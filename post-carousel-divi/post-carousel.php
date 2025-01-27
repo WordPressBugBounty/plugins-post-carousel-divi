@@ -4,7 +4,7 @@
 Plugin Name: Post Carousel Divi
 Plugin URI:  https://www.learnhowwp.com/divi-post-carousel
 Description: Adds a Post Carousle module to the Divi builder.
-Version:     1.2
+Version:     1.2.2
 Author:      Learnhowwp.com
 Author URI:  https://www.learnhowwp.com
 License:     GPL2
@@ -27,13 +27,10 @@ along with Post Carousel. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 //======================================================================================
 //======================================================================================
-
 if ( !function_exists( 'lwp_pcdivi_fs' ) ) {
     // Create a helper function for easy SDK access.
-    function lwp_pcdivi_fs()
-    {
-        global  $lwp_pcdivi_fs ;
-        
+    function lwp_pcdivi_fs() {
+        global $lwp_pcdivi_fs;
         if ( !isset( $lwp_pcdivi_fs ) ) {
             // Include Freemius SDK.
             require_once dirname( __FILE__ ) . '/freemius/start.php';
@@ -48,36 +45,35 @@ if ( !function_exists( 'lwp_pcdivi_fs' ) ) {
                 'navigation'     => 'tabs',
                 'anonymous_mode' => true,
                 'menu'           => array(
-                'slug' => 'lwp_post_carousel',
-            ),
+                    'slug' => 'lwp_post_carousel',
+                ),
                 'is_live'        => true,
             ) );
         }
-        
         return $lwp_pcdivi_fs;
     }
-    
+
     // Init Freemius.
     lwp_pcdivi_fs();
     // Signal that SDK was initiated.
     do_action( 'lwp_pcdivi_fs_loaded' );
 }
-
-
+// Display annual pricing instead of monthly pricing on Freemius Pricing page.
+lwp_pcdivi_fs()->add_filter( 'pricing/show_annual_in_monthly', function () {
+    return false;
+} );
 if ( !function_exists( 'lwp_initialize_post_carousel_extension' ) ) {
     /**
      * Creates the extension's main class instance.
      *
      * @since 1.0.0
      */
-    function lwp_initialize_post_carousel_extension()
-    {
+    function lwp_initialize_post_carousel_extension() {
         require_once plugin_dir_path( __FILE__ ) . 'includes/PostCarousel.php';
     }
-    
+
     add_action( 'divi_extensions_init', 'lwp_initialize_post_carousel_extension' );
 }
-
 if ( !function_exists( 'lwp_post_carousel_style' ) ) {
     function lwp_post_carousel_style(
         $carousel_style,
@@ -90,8 +86,7 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
         $has_featured_image,
         $carousel_image_position,
         $featured_image_url
-    )
-    {
+    ) {
         $output = '';
         $post_thumbnail_output = '';
         if ( $has_featured_image ) {
@@ -101,7 +96,6 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
 			</a>
 		</div>';
         }
-        
         if ( $carousel_style == 'default' ) {
             $output = '<div class="lwp_post_carousel_item">
 			<div class="lwp_post_carousel_item_inner lwp_carousel_default">' . $post_thumbnail_output . $post_title_output . $post_meta_output . $post_excerpt_output . '<div class="lwp_post_carousel_read_more">
@@ -110,7 +104,6 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
 			</div>
 		</div>';
         } else {
-            
             if ( $carousel_style == 'side' ) {
                 $position_class = 'lwp_image_position_' . $carousel_image_position;
                 $post_thumbnail_output_side = '';
@@ -126,17 +119,14 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
 			</div>
 		</div>';
             } else {
-                
                 if ( $carousel_style == 'overlay' || $carousel_style == 'hover' ) {
                     $featured_image_style = '';
                     $hover_class = '';
                     $featured_image_class = '';
-                    
                     if ( $has_featured_image ) {
                         $featured_image_style = 'style="background-image:url(' . $featured_image_url . ');"';
                         $featured_image_class = 'lwp_has_featured_image';
                     }
-                    
                     if ( $carousel_style == 'hover' ) {
                         $hover_class = 'lwp_carousel_hover';
                     }
@@ -149,16 +139,13 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
 			</div>
 		</div>';
                 } else {
-                    
                     if ( $carousel_style == 'overlay_box' ) {
                         $featured_image_style = '';
                         $featured_image_class = '';
-                        
                         if ( $has_featured_image ) {
                             $featured_image_style = 'style="background-image:url(' . $featured_image_url . ');"';
                             $featured_image_class = 'lwp_has_featured_image';
                         }
-                        
                         $output = '<div class="lwp_post_carousel_item">
 			<div class="lwp_post_carousel_item_inner lwp_carousel_overlay_box ' . $featured_image_class . '" ' . $featured_image_style . '>' . '<div class="lwp_content_overlay">' . $post_title_output . $post_meta_output . $post_excerpt_output . '<div class="lwp_post_carousel_read_more">
 						' . $button_output . '
@@ -167,17 +154,14 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
 			</div>
 		</div>';
                     } else {
-                        
                         if ( $carousel_style == 'overlap_content' ) {
                             $post_thumbnail_output_overlap = '';
                             $featured_image_class = '';
-                            
                             if ( $has_featured_image ) {
                                 $featured_image_class = 'lwp_has_featured_image';
                                 $post_thumbnail_output_overlap = '
 				<div class="lwp_image_overlap">' . $post_thumbnail_output . '</div>';
                             }
-                            
                             $output = '<div class="lwp_post_carousel_item">
 			<div class="lwp_post_carousel_item_inner lwp_carousel_overlap ' . $featured_image_class . '">' . $post_thumbnail_output_overlap . '<div class="lwp_overlap_content_outer">
 					<div class="lwp_overlap_content">' . $post_title_output . $post_meta_output . $post_excerpt_output . '
@@ -191,24 +175,17 @@ if ( !function_exists( 'lwp_post_carousel_style' ) ) {
 			</div>
 		</div>';
                         }
-                    
                     }
-                
                 }
-            
             }
-        
         }
-        
         return $output;
     }
 
 }
-
 if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
     add_action( 'wp_ajax_lwp_get_carousel_posts', 'lwp_get_carousel_posts' );
-    function lwp_get_carousel_posts()
-    {
+    function lwp_get_carousel_posts() {
         if ( isset( $_POST['et_admin_load_nonce_'] ) && !wp_verify_nonce( sanitize_key( $_POST['et_admin_load_nonce_'] ), 'et_admin_load_nonce' ) ) {
             die( 'Nonce verification failed.' );
         }
@@ -218,16 +195,16 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         $featured_image_size = '';
         $post_categories = array();
         $use_manual_excerpt = 'off';
-        if ( isset( $_POST['post_count'] ) && !empty($_POST['post_count']) ) {
+        if ( isset( $_POST['post_count'] ) && !empty( $_POST['post_count'] ) ) {
             $post_count = sanitize_option( 'posts_per_page', $_POST['post_count'] );
         }
-        if ( isset( $_POST['featured_image_size'] ) && !empty($_POST['featured_image_size']) ) {
+        if ( isset( $_POST['featured_image_size'] ) && !empty( $_POST['featured_image_size'] ) ) {
             $featured_image_size = sanitize_text_field( $_POST['featured_image_size'] );
         }
-        if ( isset( $_POST['post_categories'] ) && !empty($_POST['post_categories']) ) {
+        if ( isset( $_POST['post_categories'] ) && !empty( $_POST['post_categories'] ) ) {
             $post_categories = wp_parse_id_list( $_POST['post_categories'] );
         }
-        if ( isset( $_POST['use_manual_excerpt'] ) && !empty($_POST['use_manual_excerpt']) ) {
+        if ( isset( $_POST['use_manual_excerpt'] ) && !empty( $_POST['use_manual_excerpt'] ) ) {
             $use_manual_excerpt = sanitize_text_field( $_POST['use_manual_excerpt'] );
         }
         $order = 'DESC';
@@ -247,7 +224,7 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         $date_format = 'M j, Y';
         $carousel_style = 'default';
         $carousel_image_position = 'left';
-        $post_query = new WP_Query( array(
+        $post_query = new WP_Query(array(
             'post_type'      => 'post',
             'posts_per_page' => $post_count,
             'offset'         => $post_offset,
@@ -255,7 +232,7 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
             'post_status'    => 'publish',
             'order'          => $order,
             'orderby'        => $orderby,
-        ) );
+        ));
         $post_output = '';
         while ( $post_query->have_posts() ) {
             $post_query->the_post();
@@ -282,60 +259,46 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
 			</div>';
             }
             $post_excerpt_output = '';
-            
             if ( $show_excerpt == 'on' ) {
                 $excerpt_text = '';
-                
                 if ( has_excerpt() && $use_manual_excerpt == 'on' ) {
                     $excerpt_text = get_the_excerpt();
                 } else {
                     $excerpt_text = substr( wp_strip_all_tags( preg_replace( "~(?:\\[/?)[^/\\]]+/?\\]~s", '', get_the_content() ) ), 0, $excerpt_length );
                 }
-                
                 $post_excerpt_output = '<div class="lwp_post_carousel_excerpt">' . $excerpt_text . '</div>';
             }
-            
             $post_meta_output = '';
             $post_meta_array = array();
             $post_author_output = '';
             $post_date_output = '';
             $post_category_output = '';
             $post_comment_output = '';
-            
             if ( $show_author == 'on' ) {
                 $post_author_output = '<span class="lwp_meta_by">' . esc_html__( "by", "lwp-divi-module" ) . '</span> ' . get_the_author_posts_link();
                 array_push( $post_meta_array, $post_author_output );
             }
-            
-            
             if ( $show_date == 'on' ) {
                 $post_date_output = '<span class="lwp_meta_date">' . get_the_time( $date_format ) . '</span>';
                 array_push( $post_meta_array, $post_date_output );
             }
-            
-            
             if ( $show_categories == 'on' ) {
                 $post_category_output = '<span class="lwp_meta_categories">' . get_the_category_list( ',' ) . '</span>';
                 array_push( $post_meta_array, $post_category_output );
             }
-            
-            
             if ( $show_comments == 'on' ) {
                 $post_comment_output = '<span class="lwp_meta_comments">' . get_comments_number_text( __( "0 Comments", "lwp-divi-module" ) ) . '</span>';
                 array_push( $post_meta_array, $post_comment_output );
             }
-            
             $post_meta_output = $post_meta_output . '<p class="lwp_post_carousel_meta">';
             $meta_count = count( $post_meta_array );
-            for ( $i = 0 ;  $i < $meta_count ;  $i++ ) {
+            for ($i = 0; $i < $meta_count; $i++) {
                 $post_meta_output = $post_meta_output . $post_meta_array[$i];
-                
                 if ( $meta_count == 1 || $i == $meta_count - 1 ) {
                     continue;
                 } else {
                     $post_meta_output = $post_meta_output . ' <span class="lwp_meta_separator">' . $post_meta_separator . '</span> ';
                 }
-            
             }
             $post_meta_output = $post_meta_output . '</p>';
             $post_output = $post_output . lwp_post_carousel_style(
@@ -355,15 +318,13 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         $result = [
             'html' => $post_output,
         ];
-        echo  json_encode( $result ) ;
+        echo json_encode( $result );
         wp_die();
     }
 
 }
-
 if ( !function_exists( 'lwp_carousel_options_page_html' ) ) {
-    function lwp_carousel_options_page_html()
-    {
+    function lwp_carousel_options_page_html() {
         ?>
 	<style>
 		.lwp-button {
@@ -414,7 +375,7 @@ if ( !function_exists( 'lwp_carousel_options_page_html' ) ) {
 
     <div class="wrap">
 		<h1><?php 
-        echo  esc_html( get_admin_page_title() ) ;
+        echo esc_html( get_admin_page_title() );
         ?></h1>
 		<p class="lwp-main-text">Documentation for the plugin can be found <a href="https://www.learnhowwp.com/documentation/post-carousel-divi/">here</a>. You can check a demo of the plugin on this <a href="https://www.learnhowwp.com/divi-post-carousel/">link</a>. If you have any questions please feel free to open a support ticket on the plugin page <a href="#">here.</a></p>
 		
@@ -452,7 +413,7 @@ if ( !function_exists( 'lwp_carousel_options_page_html' ) ) {
 					<li><strong>And Many More Features!</strong></li>
 				</ul>
 				<a class="lwp-button" href="<?php 
-        echo  esc_url( admin_url( 'admin.php?page=lwp_post_carousel-pricing' ) ) ;
+        echo esc_url( admin_url( 'admin.php?page=lwp_post_carousel-pricing' ) );
         ?>">Upgrade</a>				
 			</div>
 		</div>
@@ -504,11 +465,9 @@ if ( !function_exists( 'lwp_carousel_options_page_html' ) ) {
     }
 
 }
-
 if ( !function_exists( 'lwp_carousel_options_page' ) ) {
     add_action( 'admin_menu', 'lwp_carousel_options_page' );
-    function lwp_carousel_options_page()
-    {
+    function lwp_carousel_options_page() {
         add_menu_page(
             'Divi Post Carousel',
             'Divi Post Carousel',
@@ -521,25 +480,19 @@ if ( !function_exists( 'lwp_carousel_options_page' ) ) {
     }
 
 }
-
 /*
 Rating Notice
 */
-
 if ( !function_exists( 'lwp_post_carousel_activation_time' ) ) {
-    function lwp_post_carousel_activation_time()
-    {
+    function lwp_post_carousel_activation_time() {
         $get_activation_time = strtotime( "now" );
         add_option( 'lwp_post_carousel_activation_time', $get_activation_time );
     }
-    
+
     register_activation_hook( __FILE__, 'lwp_post_carousel_activation_time' );
 }
-
-
 if ( !function_exists( 'lwp_post_carousel_check_installation_time' ) ) {
-    function lwp_post_carousel_check_installation_time()
-    {
+    function lwp_post_carousel_check_installation_time() {
         $install_date = get_option( 'lwp_post_carousel_activation_time' );
         $spare_me = get_option( 'lwp_post_carousel_spare_me' );
         $past_date = strtotime( '-7 days' );
@@ -547,18 +500,15 @@ if ( !function_exists( 'lwp_post_carousel_check_installation_time' ) ) {
             add_action( 'admin_notices', 'lwp_post_carousel_rating_admin_notice' );
         }
     }
-    
+
     add_action( 'admin_init', 'lwp_post_carousel_check_installation_time' );
 }
-
 if ( !function_exists( 'lwp_post_carousel_rating_admin_notice' ) ) {
     /*
     Display Admin Notice, asking for a review
     */
-    function lwp_post_carousel_rating_admin_notice()
-    {
-        global  $pagenow ;
-        
+    function lwp_post_carousel_rating_admin_notice() {
+        global $pagenow;
         if ( $pagenow == 'index.php' || $pagenow == 'admin.php' || $pagenow == 'plugins.php' ) {
             $dont_disturb = esc_url( add_query_arg( array(
                 'lwp_post_carousel_spare_me' => '1',
@@ -587,23 +537,18 @@ if ( !function_exists( 'lwp_post_carousel_rating_admin_notice' ) ) {
                 esc_url( $dont_show )
             );
         }
-    
     }
 
 }
-
 if ( !function_exists( 'lwp_post_carousel_spare_me' ) ) {
-    function lwp_post_carousel_spare_me()
-    {
-        
-        if ( isset( $_GET['lwp_post_carousel_spare_me'] ) && !empty($_GET['lwp_post_carousel_spare_me']) ) {
+    function lwp_post_carousel_spare_me() {
+        if ( isset( $_GET['lwp_post_carousel_spare_me'] ) && !empty( $_GET['lwp_post_carousel_spare_me'] ) ) {
             $lwp_post_carousel_spare_me = sanitize_text_field( $_GET['lwp_post_carousel_spare_me'] );
             if ( $lwp_post_carousel_spare_me == 1 && isset( $_GET['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_GET['_wpnonce'] ), 'lwp_post_carousel_spare_me_nonce' ) ) {
                 add_option( 'lwp_post_carousel_spare_me', TRUE );
             }
         }
-    
     }
-    
+
     add_action( 'admin_init', 'lwp_post_carousel_spare_me', 5 );
 }

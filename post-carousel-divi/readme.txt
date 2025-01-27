@@ -1,10 +1,10 @@
 === Post Carousel Divi ===
-Contributors: themeythemes
+Contributors: themeythemes, freemius
 Tags: divi, post carousel, divi module, divi post carousel
 Requires at least: 5.0
-Tested up to: 6.5
+Tested up to: 6.7
 Requires PHP: 5.6
-Stable tag: 1.2
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -128,13 +128,20 @@ You can change the number of posts that scroll by changing the Slides Scroll set
 
 = How can I upgrade to the Pro version of the plugin? =
 
-To unlock additional features and customization options, you can upgrade to the Pro version of the Divi Post Carousel plugin. Visit the Divi Post Carousel page on the plugin's website and follow the upgrade instructions. The Pro version is available for a one-time payment of $19.
+To unlock additional features and customization options, you can upgrade to the Pro version of the Divi Post Carousel plugin. Visit the Divi Post Carousel page on the plugin's website and follow the upgrade instructions.
 
 = I have a support question or feature idea. How can I get help? =
 
 If you have any questions or need support for the Divi Post Carousel plugin, you can create a new thread in the support section. The plugin's developers will assist you with any inquiries or issues you may encounter.
 
 == Changelog ==
+
+=1.2.2=
+* Update Freemius SDK version to 2.11
+
+=1.2.1=
+* Update Freemius version to 2.9
+* Add space after comma in categories list
 
 =1.2=
 * Update Freemius version

@@ -27,7 +27,7 @@ class LWP_PostCarousel extends DiviExtension {
 	 *
 	 * @var string
 	 */
-	public $version = '1.2';
+	public $version = '1.2.2';
 
 	/**
 	 * LWP_PostCarousel constructor.
