@@ -19,6 +19,15 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
 
     public function get_fields() {
         $post_fields = array(
+            'post_type'                 => array(
+                'label'           => esc_html__( 'Post Type', 'lwp-divi-module' ),
+                'type'            => 'select',
+                'option_category' => 'configuration',
+                'options'         => et_get_registered_post_type_options( false, false ),
+                'description'     => esc_html__( 'Choose posts of which post type you would like to display.', 'lwp-divi-module' ),
+                'toggle_slug'     => 'content_settings',
+                'default'         => 'post',
+            ),
             'post_count'                => array(
                 'label'           => esc_html__( 'Post Count', 'lwp-divi-module' ),
                 'description'     => esc_html__( 'The number of posts to show in the carousel', 'lwp-divi-module' ),
@@ -49,6 +58,9 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
                 'type'            => 'categories',
                 'option_category' => 'basic_option',
                 'toggle_slug'     => 'content_settings',
+                'show_if'         => array(
+                    'post_type' => 'post',
+                ),
             ),
             'use_manual_excerpt'        => array(
                 'label'           => esc_html__( 'Use Manual Excerpt', 'lwp-divi-module' ),
@@ -665,6 +677,7 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
 
     public function render( $attrs, $content, $render_slug ) {
         /*Post settings */
+        $post_type = $this->props['post_type'];
         $post_count = $this->props['post_count'];
         $featured_image_size = $this->props['featured_image_size'];
         $post_background = $this->props['post_background'];
@@ -805,7 +818,7 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
         $button_rel = $this->props['button_rel'];
         $button_icon = $this->props['button_icon'];
         $post_query = new WP_Query(array(
-            'post_type'      => 'post',
+            'post_type'      => $post_type,
             'posts_per_page' => $post_count,
             'offset'         => $post_offset,
             'cat'            => $post_categories,
@@ -872,7 +885,7 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
                 $post_date_output = '<span class="lwp_meta_date">' . get_the_time( $date_format ) . '</span>';
                 array_push( $post_meta_array, $post_date_output );
             }
-            if ( $show_categories == 'on' ) {
+            if ( $show_categories == 'on' && $post_type === 'post' ) {
                 $post_category_output = '<span class="lwp_meta_categories">' . get_the_category_list( ', ' ) . '</span>';
                 array_push( $post_meta_array, $post_category_output );
             }

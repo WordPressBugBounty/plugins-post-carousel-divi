@@ -4,7 +4,7 @@
 Plugin Name: Post Carousel Divi
 Plugin URI:  https://www.learnhowwp.com/divi-post-carousel
 Description: Adds a Post Carousle module to the Divi builder.
-Version:     1.2.2
+Version:     1.2.3
 Author:      Learnhowwp.com
 Author URI:  https://www.learnhowwp.com
 License:     GPL2
@@ -62,6 +62,14 @@ if ( !function_exists( 'lwp_pcdivi_fs' ) ) {
 lwp_pcdivi_fs()->add_filter( 'pricing/show_annual_in_monthly', function () {
     return false;
 } );
+// Include the settings page class to initialize settings page.
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-lwp-pc-settings-page.php';
+add_action( 'plugins_loaded', function () {
+    if ( is_admin() ) {
+        new Lwp_Pc_Settings_Page();
+    }
+} );
+//======================================================================================
 if ( !function_exists( 'lwp_initialize_post_carousel_extension' ) ) {
     /**
      * Creates the extension's main class instance.
@@ -192,9 +200,13 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         /*Post settings*/
         $post_title_level = 'h4';
         $post_count = 9;
+        $post_type = 'post';
         $featured_image_size = '';
         $post_categories = array();
         $use_manual_excerpt = 'off';
+        if ( isset( $_POST['post_type'] ) && !empty( $_POST['post_type'] ) ) {
+            $post_type = sanitize_text_field( $_POST['post_type'] );
+        }
         if ( isset( $_POST['post_count'] ) && !empty( $_POST['post_count'] ) ) {
             $post_count = sanitize_option( 'posts_per_page', $_POST['post_count'] );
         }
@@ -224,8 +236,11 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         $date_format = 'M j, Y';
         $carousel_style = 'default';
         $carousel_image_position = 'left';
+        if ( $post_type !== 'post' ) {
+            $post_categories = '';
+        }
         $post_query = new WP_Query(array(
-            'post_type'      => 'post',
+            'post_type'      => $post_type,
             'posts_per_page' => $post_count,
             'offset'         => $post_offset,
             'cat'            => $post_categories,
@@ -282,8 +297,8 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
                 $post_date_output = '<span class="lwp_meta_date">' . get_the_time( $date_format ) . '</span>';
                 array_push( $post_meta_array, $post_date_output );
             }
-            if ( $show_categories == 'on' ) {
-                $post_category_output = '<span class="lwp_meta_categories">' . get_the_category_list( ',' ) . '</span>';
+            if ( $show_categories == 'on' && $post_type === 'post' ) {
+                $post_category_output = '<span class="lwp_meta_categories">' . get_the_category_list( ', ' ) . '</span>';
                 array_push( $post_meta_array, $post_category_output );
             }
             if ( $show_comments == 'on' ) {
@@ -320,163 +335,6 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         ];
         echo json_encode( $result );
         wp_die();
-    }
-
-}
-if ( !function_exists( 'lwp_carousel_options_page_html' ) ) {
-    function lwp_carousel_options_page_html() {
-        ?>
-	<style>
-		.lwp-button {
-		background-color: #ff8906;
-		border: none;
-		color: white;
-		padding: 10px 24px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		}
-		.lwp-button:hover {
-			color: white;
-		}
-		.lwp-btn-demo{
-			background-color:#34c5a8;
-		}
-		.lwp-heading{
-			font-size:23px;
-			font-weight:bold;
-			margin-top:40px;
-		}
-		.lwp-flex-container{
-			display: flex;
-  			flex-direction: row;
-			flex-wrap: wrap;			  			
-		}
-		.lwp-flex-container.lwp-module-row div {
-			width: 33%!important;
-			padding-right: 0px;
-			padding-left: 0px;
-			margin-top:30px;
-		}
-		.lwp-flex-container>div{
-			padding-left:20px;
-			padding-right:20px;
-		}
-		.lwp-flex-container>div:first-child{
-			padding-left:0px;
-		}
-		@media(max-width:767px){
-			.lwp-flex-container.lwp-module-row div {
-				width: 100%!important;
-			}			
-		}		
-	</style>
-
-    <div class="wrap">
-		<h1><?php 
-        echo esc_html( get_admin_page_title() );
-        ?></h1>
-		<p class="lwp-main-text">Documentation for the plugin can be found <a href="https://www.learnhowwp.com/documentation/post-carousel-divi/">here</a>. You can check a demo of the plugin on this <a href="https://www.learnhowwp.com/divi-post-carousel/">link</a>. If you have any questions please feel free to open a support ticket on the plugin page <a href="#">here.</a></p>
-		
-		<div class="lwp-flex-container">
-			<div>
-				<h3>Free Features</h3>
-				<ul>
-					<li>* Visual Builder Supported</li>
-					<li>* Autoplay Animation</li>
-					<li>* Stop autoplay on hover</li>
-					<li>* Autoplay animation controls</li>
-					<li>* Slide animation controls</li>
-					<li>* Infinite Animation</li>
-					<li>* Show/Hide Arrows</li>
-					<li>* Show/Hide Dots</li>
-					<li>* Arrow and Dot styles</li>
-					<li>* Choose the number of posts you want to show in the carousel.</li>
-					<li>* Choose the number of post to scroll when the arrow is clicked or on autoplay.</li>
-					<li>* Responsive options. Set different number of slides for Desktop, Tablet and Phones.</li>
-					<li>* Many more options</li>
-				</ul>
-			</div>
-			<div>
-				<h3>Pro Features</h3>
-				<ul>
-					<li>* <strong>5 Premium Carousel Styles!</strong></li>
-					<li>* Order Ascending or Descending</li>
-					<li>* Random Order</li>
-					<li>* Order by Comment Count</li>
-					<li>* Change Post offset</li>
-					<li>* Change Excerpt legnth</li>
-					<li>* Change Button text</li>
-					<li>* Set Date Format</li>
-					<li>* Option to turn off featured image, title, excerpt, button and every field in post meta</li>
-					<li><strong>And Many More Features!</strong></li>
-				</ul>
-				<a class="lwp-button" href="<?php 
-        echo esc_url( admin_url( 'admin.php?page=lwp_post_carousel-pricing' ) );
-        ?>">Upgrade</a>				
-			</div>
-		</div>
-
-		<h2 class="wrap lwp-heading">More Modules</h2>
-		
-		<div class="lwp-flex-container lwp-module-row">
-			<div>
-				<h3>Divi Contact Form DB</h3>
-				<p>Save Divi Contact Form Submissions in the database.</p>
-				<a href="https://wordpress.org/plugins/contact-form-db-divi/" class="lwp-button" target="_blank">Download</a>
-				<a href="https://www.learnhowwp.com/divi-contact-form-db/" class="lwp-button lwp-btn-demo" target="_blank">Demo</a>
-			</div>
-			<div>
-				<h3>Divi Breadcrumbs</h3>
-				<p>Easily add breadcrumbs to your website using a breadcrumbs module.</p>
-				<a href="https://wordpress.org/plugins/breadcrumbs-divi-module/" class="lwp-button" target="_blank">Download</a>
-				<a href="https://www.learnhowwp.com/divi-breadcrumbs-module/" class="lwp-button lwp-btn-demo" target="_blank">Demo</a>
-			</div>
-			<div>
-				<h3>Divi Overlay Image Module</h3>
-				<p>Easily add images with overlay text that shows on hover</p>
-				<a href="https://wordpress.org/plugins/overlay-image-divi-module/" class="lwp-button" target="_blank">Download</a>
-				<a href="https://www.learnhowwp.com/divi-overlay-images/" class="lwp-button lwp-btn-demo" target="_blank">Demo</a>
-			</div>
-			<div>
-				<h3>Divi Menu Cart Module</h3>
-				<p>Easily add a cart icon with price and item count.</p>
-				<a href="https://www.learnhowwp.com/divi-menu-cart/" class="lwp-button" target="_blank">Download</a>
-				<a href="https://wordpress.org/plugins/menu-cart-divi/" class="lwp-button lwp-btn-demo" target="_blank">Demo</a>
-			</div>
-			<div>
-				<h3>Divi Flip Cards</h3>
-				<p>Easily add flip cards to your website using a flip cards module.</p>				
-				<a href="https://wordpress.org/plugins/flip-cards-module-divi/" class="lwp-button" target="_blank">Download</a>
-				<a href="https://www.learnhowwp.com/divi-flip-cards-plugin/" class="lwp-button lwp-btn-demo" target="_blank">Demo</a>
-			</div>
-			<div>
-				<h3>Divi Image Carousel</h3>
-				<p>Easily add image carousel to your website using an image carouse module.</p>				
-				<a href="https://wordpress.org/plugins/image-carousel-divi/" class="lwp-button" target="_blank">Download</a>
-				<a href="https://www.learnhowwp.com/divi-image-carousel-plugin/" class="lwp-button lwp-btn-demo" target="_blank">Demo</a>
-			</div>						
-		</div>
-
-    </div>
-
-    <?php 
-    }
-
-}
-if ( !function_exists( 'lwp_carousel_options_page' ) ) {
-    add_action( 'admin_menu', 'lwp_carousel_options_page' );
-    function lwp_carousel_options_page() {
-        add_menu_page(
-            'Divi Post Carousel',
-            'Divi Post Carousel',
-            'manage_options',
-            'lwp_post_carousel',
-            'lwp_carousel_options_page_html',
-            'dashicons-slides',
-            100
-        );
     }
 
 }
