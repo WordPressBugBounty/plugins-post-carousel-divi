@@ -220,6 +220,22 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
                     'layout' => 'default',
                 ),
             ),
+            'css_ease'                  => array(
+                'label'           => esc_html__( 'CSS Animation Easing', 'lwp-divi-module' ),
+                'description'     => esc_html__( 'Choose the easing function for the slide animation.', 'lwp-divi-module' ),
+                'type'            => 'select',
+                'option_category' => 'basic_option',
+                'options'         => array(
+                    'ease'        => esc_html__( 'Ease', 'lwp-divi-module' ),
+                    'linear'      => esc_html__( 'Linear', 'lwp-divi-module' ),
+                    'ease-in'     => esc_html__( 'Ease In', 'lwp-divi-module' ),
+                    'ease-out'    => esc_html__( 'Ease Out', 'lwp-divi-module' ),
+                    'ease-in-out' => esc_html__( 'Ease In Out', 'lwp-divi-module' ),
+                ),
+                'default'         => 'ease',
+                'toggle_slug'     => 'animation_settings',
+                'tab_slug'        => 'advanced',
+            ),
             'arrow_color'               => array(
                 'label'           => esc_html__( 'Arrow Color', 'lwp-divi-module' ),
                 'type'            => 'color-alpha',
@@ -727,6 +743,7 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
         $autoplay_animation_speed = $this->props['autoplay_animation_speed'];
         $slide_animation_speed = $this->props['slide_animation_speed'];
         $pause_on_hover = $this->props['pause_on_hover'];
+        $css_ease = $this->props['css_ease'];
         $arrow_color = $this->props['arrow_color'];
         $arrow_color_tablet = $this->props['arrow_color_tablet'];
         $arrow_color_phone = $this->props['arrow_color_phone'];
@@ -1006,7 +1023,7 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
         if ( $layout == 'default' || $layout == '' ) {
             //Slick attribute if layout is default
             $data_slick = sprintf(
-                'data-slick=\'{ "vertical":%17$s, "slidesToShow": %1$s, "slidesToScroll": %2$s, "dots":%3$s, "arrows":%4$s, "infinite":%5$s, "autoplay":%6$s, "autoplaySpeed":%7$s, "pauseOnHover":%16$s, "adaptiveHeight":%18$s, "speed":%19$s, "responsive": [ { "breakpoint": 980, "settings": { "slidesToShow": %8$s, "slidesToScroll": %10$s, "arrows":%12$s,"dots":%14$s } } ,{ "breakpoint": 767, "settings": { "slidesToShow": %9$s, "slidesToScroll": %11$s, "arrows":%13$s,"dots":%15$s } } ] }\'',
+                'data-slick=\'{ "vertical":%17$s, "slidesToShow": %1$s, "slidesToScroll": %2$s, "dots":%3$s, "arrows":%4$s, "infinite":%5$s, "autoplay":%6$s, "autoplaySpeed":%7$s, "pauseOnHover":%16$s, "adaptiveHeight":%18$s, "speed":%19$s, "cssEase":"%20$s", "responsive": [ { "breakpoint": 980, "settings": { "slidesToShow": %8$s, "slidesToScroll": %10$s, "arrows":%12$s,"dots":%14$s } } ,{ "breakpoint": 767, "settings": { "slidesToShow": %9$s, "slidesToScroll": %11$s, "arrows":%13$s,"dots":%15$s } } ] }\'',
                 $slides_show,
                 $slides_scroll,
                 $show_dots,
@@ -1025,13 +1042,14 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
                 $pause_on_hover,
                 $vertical_layout,
                 $adaptive_height,
-                $slide_animation_speed
+                $slide_animation_speed,
+                $css_ease
             );
         } else {
             if ( $layout == 'center' ) {
                 //Slick attribute if layout is set to center mode
                 $data_slick = sprintf(
-                    'data-slick=\'{ "vertical":%17$s, "centerMode": true, "centerPadding": "%18$s",  "slidesToShow": %1$s, "dots":%3$s, "arrows":%4$s, "infinite":true, "autoplay":%6$s, "autoplaySpeed":%7$s, "pauseOnHover":%16$s, "adaptiveHeight":%19$s, "speed":%20$s, "responsive": [ { "breakpoint": 980, "settings": { "centerMode": true, "slidesToShow": %8$s, "arrows":%12$s,"dots":%14$s } } ,{ "breakpoint": 767, "settings": {"centerMode": true, "slidesToShow": %9$s, "arrows":%13$s,"dots":%15$s } } ] }\'',
+                    'data-slick=\'{ "vertical":%17$s, "centerMode": true, "centerPadding": "%18$s",  "slidesToShow": %1$s, "dots":%3$s, "arrows":%4$s, "infinite":true, "autoplay":%6$s, "autoplaySpeed":%7$s, "pauseOnHover":%16$s, "adaptiveHeight":%19$s, "speed":%20$s, "cssEase":"%21$s", "responsive": [ { "breakpoint": 980, "settings": { "centerMode": true, "slidesToShow": %8$s, "arrows":%12$s,"dots":%14$s } } ,{ "breakpoint": 767, "settings": {"centerMode": true, "slidesToShow": %9$s, "arrows":%13$s,"dots":%15$s } } ] }\'',
                     $slides_show,
                     $slides_scroll,
                     $show_dots,
@@ -1051,13 +1069,14 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
                     $vertical_layout,
                     $center_padding,
                     $adaptive_height,
-                    $slide_animation_speed
+                    $slide_animation_speed,
+                    $css_ease
                 );
             } else {
                 if ( $layout == 'sync' ) {
                     //Slick attribute and html if layout is set to synced slider
                     $data_slick = sprintf(
-                        'data-slick=\'{"asNavFor": ".big-slider","slidesToShow": %1$s, "slidesToScroll": %2$s, "dots":%3$s, "arrows":%4$s, "focusOnSelect": true, "adaptiveHeight":%17$s, "speed":%18$s, "responsive": [ { "breakpoint": 980, "settings": { "slidesToShow": %8$s, "slidesToScroll": %10$s, "arrows":%12$s,"dots":%14$s } } ,{ "breakpoint": 767, "settings": { "slidesToShow": %9$s, "slidesToScroll": %11$s, "arrows":%13$s,"dots":%15$s } } ] }\'',
+                        'data-slick=\'{"asNavFor": ".big-slider","slidesToShow": %1$s, "slidesToScroll": %2$s, "dots":%3$s, "arrows":%4$s, "focusOnSelect": true, "adaptiveHeight":%17$s, "speed":%18$s, "cssEase":"%19$s", "responsive": [ { "breakpoint": 980, "settings": { "slidesToShow": %8$s, "slidesToScroll": %10$s, "arrows":%12$s,"dots":%14$s } } ,{ "breakpoint": 767, "settings": { "slidesToShow": %9$s, "slidesToScroll": %11$s, "arrows":%13$s,"dots":%15$s } } ] }\'',
                         $slides_show,
                         $slides_scroll,
                         $show_dots,
@@ -1075,7 +1094,8 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
                         $show_dots_phone,
                         $pause_on_hover,
                         $adaptive_height,
-                        $slide_animation_speed
+                        $slide_animation_speed,
+                        $css_ease
                     );
                     $sync_slider_html = sprintf( '<section class="lwp-slick-slider slider big-slider" data-slick=\'{"slidesToShow": 1, "slidesToScroll": 1, "arrows":false, "fade":true, "asNavFor":".small-slider", "adaptiveHeight":true}\'>
 					%1$s

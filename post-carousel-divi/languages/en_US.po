@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Post Carousel Divi 1.2.3\n"
+"Project-Id-Version: Post Carousel Divi 1.2.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/post-carousel-divi\n"
-"POT-Creation-Date: 2025-05-17 19:10:19+00:00\n"
+"POT-Creation-Date: 2025-08-03 15:51:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -133,16 +133,16 @@ msgstr ""
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:148
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:162
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:217
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:293
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:308
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:520
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:532
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:544
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:556
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:568
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:580
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:592
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:604
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:309
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:324
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:536
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:548
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:560
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:572
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:584
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:596
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:608
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:620
 msgid "Yes"
 msgstr ""
 
@@ -152,16 +152,16 @@ msgstr ""
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:147
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:163
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:216
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:292
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:307
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:519
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:531
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:543
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:555
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:567
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:579
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:591
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:603
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:308
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:323
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:535
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:547
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:559
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:571
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:583
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:595
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:607
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:619
 msgid "No"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgid "Set the animation speed for the autoplay animation."
 msgstr ""
 
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:183
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:276
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:292
 msgid ""
 "Speed up or slow down your animation by adjusting the animation duration. "
 "Units are in milliseconds and the default animation duration is one second."
@@ -249,459 +249,487 @@ msgid ""
 msgstr ""
 
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:224
+msgid "CSS Animation Easing"
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:225
+msgid "Choose the easing function for the slide animation."
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:229
+msgid "Ease"
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:230
+msgid "Linear"
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:231
+msgid "Ease In"
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:232
+msgid "Ease Out"
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:233
+msgid "Ease In Out"
+msgstr ""
+
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:240
 msgid "Arrow Color"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:227
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:243
 msgid "Select the colors of the arrows in the carousel."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:234
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:250
 msgid "Arrow Background"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:236
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:252
 msgid "Select the background color for the arrows in the carousel."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:243
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:259
 msgid "Dots Color"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:246
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:262
 msgid "Select color for dots in the carousel"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:252
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:268
 msgid "Layout"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:253
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:269
 msgid "Choose the layout for the slider."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:257
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:614
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:273
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:630
 msgid "Default"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:264
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:280
 msgid "Center Padding"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:265
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:281
 msgid "Set the center padding for the center mode slider."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:285
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:301
 msgid "Vertical Layout"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:288
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:304
 msgid "Select if you want enable sliding for this slider."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:300
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:316
 msgid "Adaptive Height"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:303
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:319
 msgid "Select if you want enable adaptive height."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:313
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:330
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:329
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:346
 msgid "Arrow Location"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:314
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:331
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:330
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:347
 msgid "Choose the location of the arrows."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:318
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:335
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:334
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:351
 msgid "Side"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:319
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:389
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:407
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:335
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:405
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:423
 msgid "Top"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:320
 #: includes/modules/DiviPostCarousel/DiviPostCarousel.php:336
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:391
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:409
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:352
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:407
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:425
 msgid "Bottom"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:346
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:364
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:384
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:402
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:362
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:380
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:400
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:418
 msgid "Arrow Alignment"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:347
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:365
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:385
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:403
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:363
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:381
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:401
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:419
 msgid "Choose the alignment of the arrows."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:351
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:369
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:632
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:367
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:385
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:648
 msgid "Left"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:352
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:370
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:633
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:368
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:386
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:649
 msgid "Right"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:353
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:371
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:390
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:408
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:369
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:387
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:406
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:424
 msgid "Center"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:420
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:436
 msgid "Post Background"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:422
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:438
 msgid "Select the background color for the posts."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:439
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:455
 msgid "All Categories"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:450
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:466
 msgid "Order"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:451
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:467
 msgid "Choose the order for the posts"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:455
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:471
 msgid "Ascending "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:456
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:472
 msgid "Descending "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:462
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:478
 msgid "Order By"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:463
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:479
 msgid "Choose parameter to sort retrieved posts"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:467
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:483
 msgid "Date "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:468
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:484
 msgid "Last Modified "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:469
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:485
 msgid "Title "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:470
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:486
 msgid "Post Slug "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:471
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:487
 msgid "Random "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:472
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:488
 msgid "Comment Count "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:473
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:489
 msgid "Author"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:474
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:490
 msgid "ID "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:475
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:491
 msgid "Menu Order "
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:481
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:497
 msgid "Post offset"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:482
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:498
 msgid "Choose the offset for posts"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:489
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:505
 msgid "Excerpt Length"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:490
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:506
 msgid "Set the length of excerpt in characters."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:497
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:513
 msgid "Date Format"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:498
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:514
 msgid ""
 "If you would like to adjust the date format, input the appropriate date "
 "format here."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:505
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:521
 msgid "Button Text"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:506
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:522
 msgid "Set the text for button"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:513
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:529
 msgid "Show Title"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:516
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:532
 msgid "Select if you want to show Title for the posts"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:525
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:541
 msgid "Show Featured Image"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:528
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:544
 msgid "Select if you want to show featured image for the posts"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:537
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:553
 msgid "Show Excerpt"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:540
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:556
 msgid "Select if you want to show Excerpt for the posts"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:549
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:565
 msgid "Show Author"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:552
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:568
 msgid "Select if you want to show Author in post meta"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:561
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:577
 msgid "Show Date"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:564
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:580
 msgid "Select if you want to show Date in post meta"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:573
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:589
 msgid "Show Categories"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:576
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:592
 msgid "Select if you want to show Categories in post meta"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:585
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:601
 msgid "Show Comments"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:588
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:604
 msgid "Select if you want to show comment count in post meta"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:597
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:613
 msgid "Show Button"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:600
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:616
 msgid "Select if you want to show read more button"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:609
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:625
 msgid "Style"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:610
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:626
 msgid "Choose the style for the carousel."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:615
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:631
 msgid "Side Image"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:616
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:632
 msgid "Overlay Content"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:617
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:633
 msgid "Hover Content"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:618
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:634
 msgid "Overlay Box"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:619
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:635
 msgid "Overlap Content"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:627
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:643
 msgid "Image Position"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:628
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:644
 msgid "Choose the image position for the carousel."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:643
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:659
 msgid "Overlay Color"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:645
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:661
 msgid "Select the  color for the overlay in the carousel."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:653
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:669
 msgid "Transition Speed (in ms)"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:654
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:670
 msgid "Set the transition speed for hover animation"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:673
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:689
 msgid "Overlay Padding"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:675
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:691
 msgid "Set the padding around the overlay."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:683
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:699
 msgid "Content Padding"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:685
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:701
 msgid "Set the padding inside the content box."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:693
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:709
 msgid "Content Margin"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:695
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:711
 msgid "Set the margins for the content box."
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:714
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:730
 msgid "Content"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:715
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:717
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:731
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:733
 msgid "Carousel Elements"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:721
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:737
 msgid "Carousel Animation"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:725
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:756
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:829
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:741
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:772
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:845
 msgid "Image"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:729
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:767
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:838
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:851
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:942
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:745
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:783
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:854
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:867
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:958
 msgid "Main Image"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:733
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:782
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:938
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:749
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:798
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:954
 msgid "Center Image"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:737
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:753
 msgid "Post Styles"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:797
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:926
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:813
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:942
 msgid "Arrow"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:809
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:864
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:825
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:880
 msgid "Post"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:883
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:899
 msgid "Post Title"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:889
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:905
 msgid "Excerpt"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:895
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:911
 msgid "Meta"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:900
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:916
 msgid "Button"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:930
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:946
 msgid "Dots"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:934
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:950
 msgid "Images"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:946
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:962
 msgid "Slider Container"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:950
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:966
 msgid "Slide Container"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:1236
-#: post-carousel.php:404
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:1252
+#: post-carousel.php:448
 msgid "by"
 msgstr ""
 
-#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:1251
-#: post-carousel.php:419
+#: includes/modules/DiviPostCarousel/DiviPostCarousel.php:1267
+#: post-carousel.php:463
 msgid "0 Comments"
 msgstr ""
 

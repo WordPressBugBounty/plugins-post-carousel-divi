@@ -4,7 +4,7 @@
 Plugin Name: Post Carousel Divi
 Plugin URI:  https://www.learnhowwp.com/divi-post-carousel
 Description: Adds a Post Carousle module to the Divi builder.
-Version:     1.2.3
+Version:     1.2.4
 Author:      Learnhowwp.com
 Author URI:  https://www.learnhowwp.com
 License:     GPL2
@@ -333,80 +333,8 @@ if ( !function_exists( 'lwp_get_carousel_posts' ) ) {
         $result = [
             'html' => $post_output,
         ];
-        echo json_encode( $result );
+        echo wp_json_encode( $result );
         wp_die();
     }
 
-}
-/*
-Rating Notice
-*/
-if ( !function_exists( 'lwp_post_carousel_activation_time' ) ) {
-    function lwp_post_carousel_activation_time() {
-        $get_activation_time = strtotime( "now" );
-        add_option( 'lwp_post_carousel_activation_time', $get_activation_time );
-    }
-
-    register_activation_hook( __FILE__, 'lwp_post_carousel_activation_time' );
-}
-if ( !function_exists( 'lwp_post_carousel_check_installation_time' ) ) {
-    function lwp_post_carousel_check_installation_time() {
-        $install_date = get_option( 'lwp_post_carousel_activation_time' );
-        $spare_me = get_option( 'lwp_post_carousel_spare_me' );
-        $past_date = strtotime( '-7 days' );
-        if ( $past_date >= $install_date && $spare_me == false ) {
-            add_action( 'admin_notices', 'lwp_post_carousel_rating_admin_notice' );
-        }
-    }
-
-    add_action( 'admin_init', 'lwp_post_carousel_check_installation_time' );
-}
-if ( !function_exists( 'lwp_post_carousel_rating_admin_notice' ) ) {
-    /*
-    Display Admin Notice, asking for a review
-    */
-    function lwp_post_carousel_rating_admin_notice() {
-        global $pagenow;
-        if ( $pagenow == 'index.php' || $pagenow == 'admin.php' || $pagenow == 'plugins.php' ) {
-            $dont_disturb = esc_url( add_query_arg( array(
-                'lwp_post_carousel_spare_me' => '1',
-                '_wpnonce'                   => wp_create_nonce( 'lwp_post_carousel_spare_me_nonce' ),
-            ), get_admin_url() ) );
-            $dont_show = esc_url( add_query_arg( array(
-                'lwp_post_carousel_spare_me' => '1',
-                '_wpnonce'                   => wp_create_nonce( 'lwp_post_carousel_spare_me_nonce' ),
-            ), get_admin_url() ) );
-            $plugin_info = 'Divi Post Carousel';
-            $reviewurl = esc_url( 'https://wordpress.org/support/plugin/post-carousel-divi/reviews/#new-post' );
-            printf(
-                '<div class="wrap notice notice-info">
-							<div style="margin:10px 0px;">
-								Hello! Seems like you are using <strong> %s </strong> plugin to build your Divi website - Thanks a lot! Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the plugin.
-							</div>	
-							<div class="button-group" style="margin:10px 0px;">
-								<a href="%s" class="button button-primary" target="_blank" style="margin-right:10px;">Ok,you deserve it</a>
-								<span class="dashicons dashicons-smiley"></span><a href="%s" class="button button-link" style="margin-right:10px; margin-left:3px;">I already did</a>
-								<a href="%s" class="button button-link"> Don\'t show this again.</a>							
-							</div>
-						</div>',
-                esc_html( $plugin_info ),
-                esc_url( $reviewurl ),
-                esc_url( $dont_disturb ),
-                esc_url( $dont_show )
-            );
-        }
-    }
-
-}
-if ( !function_exists( 'lwp_post_carousel_spare_me' ) ) {
-    function lwp_post_carousel_spare_me() {
-        if ( isset( $_GET['lwp_post_carousel_spare_me'] ) && !empty( $_GET['lwp_post_carousel_spare_me'] ) ) {
-            $lwp_post_carousel_spare_me = sanitize_text_field( $_GET['lwp_post_carousel_spare_me'] );
-            if ( $lwp_post_carousel_spare_me == 1 && isset( $_GET['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_GET['_wpnonce'] ), 'lwp_post_carousel_spare_me_nonce' ) ) {
-                add_option( 'lwp_post_carousel_spare_me', TRUE );
-            }
-        }
-    }
-
-    add_action( 'admin_init', 'lwp_post_carousel_spare_me', 5 );
 }
