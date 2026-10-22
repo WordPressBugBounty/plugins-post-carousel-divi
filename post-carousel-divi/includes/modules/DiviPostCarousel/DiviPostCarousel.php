@@ -5,6 +5,8 @@ class LWP_PostCarouselModule extends ET_Builder_Module {
 
     public $vb_support = 'on';
 
+    public $icon;
+
     protected $module_credits = array(
         'module_uri' => 'https://www.learnhowwp.com/divi-post-carousel/',
         'author'     => 'learnhowwp.com',

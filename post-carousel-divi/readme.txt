@@ -2,9 +2,9 @@
 Contributors: themeythemes, freemius
 Tags: divi, post carousel, divi module, divi post carousel
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,10 @@ To unlock additional features and customization options, you can upgrade to the 
 If you have any questions or need support for the Divi Post Carousel plugin, you can create a new thread in the support section. The plugin's developers will assist you with any inquiries or issues you may encounter.
 
 == Changelog ==
+
+=1.2.5=
+* Update Freemius SDK version to 2.13.5
+* Fix PHP 8.2 deprecation notice for the module icon property
 
 =1.2.4=
 * Add option to set cssEase for the carousel.

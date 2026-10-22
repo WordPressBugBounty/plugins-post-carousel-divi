@@ -4,7 +4,7 @@
 Plugin Name: Post Carousel Divi
 Plugin URI:  https://www.learnhowwp.com/divi-post-carousel
 Description: Adds a Post Carousle module to the Divi builder.
-Version:     1.2.4
+Version:     1.2.5
 Author:      Learnhowwp.com
 Author URI:  https://www.learnhowwp.com
 License:     GPL2
@@ -35,19 +35,20 @@ if ( !function_exists( 'lwp_pcdivi_fs' ) ) {
             // Include Freemius SDK.
             require_once dirname( __FILE__ ) . '/freemius/start.php';
             $lwp_pcdivi_fs = fs_dynamic_init( array(
-                'id'             => '8089',
-                'slug'           => 'post-carousel-divi',
-                'type'           => 'plugin',
-                'public_key'     => 'pk_a804bd198a264b58adb12d2112832',
-                'is_premium'     => false,
-                'has_addons'     => false,
-                'has_paid_plans' => true,
-                'navigation'     => 'tabs',
-                'anonymous_mode' => true,
-                'menu'           => array(
+                'id'               => '8089',
+                'slug'             => 'post-carousel-divi',
+                'type'             => 'plugin',
+                'public_key'       => 'pk_a804bd198a264b58adb12d2112832',
+                'is_premium'       => false,
+                'has_addons'       => false,
+                'has_paid_plans'   => true,
+                'navigation'       => 'tabs',
+                'anonymous_mode'   => true,
+                'menu'             => array(
                     'slug' => 'lwp_post_carousel',
                 ),
-                'is_live'        => true,
+                'is_live'          => true,
+                'is_org_compliant' => true,
             ) );
         }
         return $lwp_pcdivi_fs;
